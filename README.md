@@ -1,6 +1,6 @@
 # Shalom
 
-Shalom is a modern, Flutter-based church management system designed to help churches manage their congregation with grace and efficiency. The name "Shalom" reflects our mission to bring peace and harmony to church administration.
+Shalom is a modern church management system designed to help churches manage their congregation with grace and efficiency. The name "Shalom" reflects our mission to bring peace and harmony to church administration.
 
 ## Tech Stack
 
@@ -96,4 +96,4 @@ See the repository structure in the infrastructure documentation for detailed in
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Elastic License 2.0 - see the [LICENSE](LICENSE) file for details.
