@@ -1,6 +1,6 @@
 # Shalom
 
-Shalom is a modern, Flutter-based church management system designed to help churches manage their congregation with grace and efficiency. The name "Shalom" reflects our mission to bring peace and harmony to church administration.
+Shalom is a modern church management system designed to help churches manage their congregation with grace and efficiency. The name "Shalom" reflects our mission to bring peace and harmony to church administration.
 
 ## Tech Stack
 
