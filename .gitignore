@@ -22,6 +22,9 @@ out/
 # Firebase
 **/service-account.json
 **/firebase-adminsdk.json
+**/firebase-admin.json
+**/firebase-credentials.json
+**/serviceAccountKey.json
 
 # Logs
 npm-debug.log*
@@ -51,3 +54,5 @@ web-build/
 # Temporary files
 *.log
 *.tmp
+.tmp/
+tmp/

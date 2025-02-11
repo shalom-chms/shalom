@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isSystemAdmin() {
+      return isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'system_admin';
+    }
+    
+    function isChurchAdmin(churchId) {
+      return isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'church_admin' &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.churchId == churchId;
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      // Allow users to read their own profile
+      allow read: if isAuthenticated() && (
+        request.auth.uid == userId || // Own profile
+        isSystemAdmin() // System admin can read all profiles
+      );
+      
+      // Only system admins can create/update/delete users
+      allow write: if isSystemAdmin();
+      
+      // Allow authenticated users to read their own document
+      allow get: if request.auth.uid == userId;
+    }
+    
+    // Churches collection
+    match /churches/{churchId} {
+      // System admin can do everything
+      allow read, write: if isSystemAdmin();
+      
+      // Church admin can read and update their own church
+      allow read, update: if isChurchAdmin(churchId);
+      
+      // Other church members can read their church data
+      allow read: if isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.churchId == churchId;
+    }
+  }
+}

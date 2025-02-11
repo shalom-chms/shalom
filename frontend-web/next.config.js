@@ -5,9 +5,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: '**',
       },
     ],
+    unoptimized: true,
     domains: ['firebasestorage.googleapis.com'],
   },
   env: {
