@@ -51,6 +51,9 @@ Thumbs.db
 *.orig.*
 web-build/
 
+# Sensitive scripts
+backend/scripts/
+
 # Temporary files
 *.log
 *.tmp
